@@ -1,3 +1,182 @@
-h1{
-    color: lime;
+button, input, body{
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0;
+    margin: 0;
+
+}
+
+
+
+:root{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+
+    box-sizing: border-box;
+
+    /* --outline-color: rgb(189, 189, 189); */
+    --outline-color: rgb(255, 255, 255);
+    --outline-highlight: rgb(105, 168, 250);
+
+    color: white;
+}
+
+
+
+
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.background{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+
+    background-image: linear-gradient(to bottom right, rgb(200 255 255), rgb(91 171 211));
+}
+
+
+/* the search box and icon container */
+form{
+    display: flex;
+    justify-content: center;
+    /* gap is specifically so outlines overlap, hence px  */
+    gap: 2px;
+
+    height: 2rem;
+    width: fit-content;
+
+    padding-top: 1rem;
+}
+
+/* the magnifying glass  icon */
+.searchIcon{
+    height: 100%;
+    aspect-ratio: 1/1;
+
+    outline: solid 2px var(--outline-color);
+    border-radius: 6px 6px 6px 6px;
+
+    background-size: cover;
+    background-image: url("./graphics/magnify.svg");
+
+    cursor: grab;
+}
+/* when search box is visible */
+.searchIcon.inputShow{
+    border-radius: 0 6px 6px 0;
+}
+
+
+/* the input box */
+#placeSearch{
+    height: 100%;
+
+    border-radius: 6px 0 0 6px;
+
+    outline: solid 2px;
+    outline-color: var(--outline-color);
+
+    font-size: 1.25rem;
+    padding-left: 0.5ch;
+}
+
+/* both search bar and icon outline color */
+#placeSearch:focus, #placeSearch:focus+.searchIcon{
+    outline-color: var(--outline-highlight);
+}
+
+
+/* for when input box OR region text is hidden */
+.hide{
+    display: none;
+}
+
+
+
+/* location text container */
+.locationText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* main city text */
+.cityText{
+    font-size: 3rem;
+}
+
+/* container for location detail text (country/region) */
+.locationDetails{
+    display: flex;
+    gap: 2ch;
+
+    font-size: 1.25rem;
+}
+
+
+/* container of weather description text (ie 'sunny'), icon, and degrees */
+.weatherContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.weatherDescription{
+    font-size: 2.5rem;
+}
+
+/* container of icon / degree display */
+.weatherInfo{
+    display: flex;
+    align-items: center;
+}
+
+.weatherInfo > img{
+    width: 18ch;
+    height: 18ch;
+
+    /* background-color: aquamarine; */
+}
+
+.weatherInfo > div{
+    font-size: 5rem;
+}
+
+
+/* container of wind / humidity display */
+.detailContainer{
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr;
+    /* gap: 2ch; */
+
+    border-radius: 6px;
+    outline: solid var(--outline-color) 2px;
+}
+
+.divider{
+    background-color: var(--outline-color);
+}
+
+/* boxes that contain wind speed/humidity individually */
+.weatherDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    padding: 2.5ch 1.75ch 2.5ch 1.75ch;
+}
+
+/* humidity num/speed num */
+.detailNum{
+    font-size: 1.75rem;
 }
