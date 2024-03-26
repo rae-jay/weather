@@ -6,7 +6,7 @@ console.log("working test");
 
 
 
-const baseLink = 'http://api.weatherapi.com/v1/';
+const baseLink = 'https://api.weatherapi.com/v1/';
 let requestType = 'current.json?';
 const apiKey = 'key=faed28754a2c4013a9453643242303';
 let defaultSearch = 'Edinburgh';
