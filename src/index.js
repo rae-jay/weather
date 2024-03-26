@@ -12,8 +12,10 @@ const apiKey = 'key=faed28754a2c4013a9453643242303';
 let defaultSearch = 'Edinburgh';
 
 
+console.log("IS THIS");
 initialSetup();
 initiateSearch();
+console.log("HAPPENING AT ALL");
 
 
 // const exampleCities = [ 'London', 'San Diego', 'Edinburgh', 'Sydney' ];
@@ -44,7 +46,7 @@ export function initiateSearch(searchTerm){
         link = createLink(defaultSearch);
     }
 
-    console.log(link);
+    console.log('link: ' + link);
     searchWeather(link).then( (weather) => {
         // console.log(weather);
 
