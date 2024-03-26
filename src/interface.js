@@ -15,12 +15,15 @@ const degreeNum = document.querySelector('#weatherDegrees');
 const humidityNum = document.querySelector('#humidityNum');
 const windNum = document.querySelector('#windNum');
 
+const toggleButton = document.querySelector('.metricToggle');
 
 
 
 let metric = false;
 let formHasMouse = false;
 
+// this is necessary to toggle metric/not without reloading
+let currentDisplayData;
 
 
 export function initialSetup(){
@@ -49,6 +52,11 @@ export function initialSetup(){
         }
 
     })
+
+    toggleButton.addEventListener('click', () => {
+        metric ? metric = false : metric = true;
+        displayInfo(currentDisplayData);
+    })
 }
 
 
@@ -69,6 +77,8 @@ function searchBoxHide(){
 
 
 export function displayInfo(data){
+    currentDisplayData = data;
+
     cityText.textContent = data.locCity;
     countryText.textContent = data.locCountry;
     if(data.locRegion.length <= 10){
@@ -86,11 +96,11 @@ export function displayInfo(data){
     weatherIcon.src = data.iconLink;
 
     if(metric == true){
-        degreeNum.textContent = data.tempC + '°';
+        degreeNum.textContent = data.tempC + '°C';
         windNum.textContent = data.windKph + ' kph';
     }
     else{
-        degreeNum.textContent = data.tempF + '°';
+        degreeNum.textContent = data.tempF + '°F';
         windNum.textContent = data.windMph + ' mph';
     }
 

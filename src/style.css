@@ -180,3 +180,20 @@ form{
 .detailNum{
     font-size: 1.75rem;
 }
+
+
+
+.metricToggle{
+    align-self: flex-start;
+
+    /* i feel like i shouldn't  have to do this here but uh */
+    color: white;
+
+    padding: 1ch;
+    border-radius: 6px;
+    border: solid white 2px;
+
+    margin-left: 3ch;
+
+    cursor: grab;
+}
