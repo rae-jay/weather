@@ -73,7 +73,7 @@ function createLink(location){
 
 async function searchWeather(link){
     try{
-        const response = await fetch(link)
+        const response = await fetch(link, {mode: 'cors'})
         const data = await response.json();
 
         return weatherStats(data);
