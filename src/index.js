@@ -44,6 +44,7 @@ export function initiateSearch(searchTerm){
         link = createLink(defaultSearch);
     }
 
+    console.log(link);
     searchWeather(link).then( (weather) => {
         // console.log(weather);
 
